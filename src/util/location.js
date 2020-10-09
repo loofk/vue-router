@@ -13,6 +13,7 @@ export function normalizeLocation (
   append: ?boolean,
   router: ?VueRouter
 ): Location {
+  // 首先把字符串规范成Location对象
   let next: Location = typeof raw === 'string' ? { path: raw } : raw
   // named target
   if (next._normalized) {
@@ -27,6 +28,8 @@ export function normalizeLocation (
   }
 
   // relative params
+  // 如果新路径没有设置path但有params，则继承当前路径的name拼接params
+  // 如果当前路径也没有name，则取当前路径matched数组中最后一个路径进行拼接
   if (!next.path && next.params && current) {
     next = extend({}, next)
     next._normalized = true
