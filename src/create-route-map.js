@@ -198,8 +198,10 @@ function normalizePath (
   parent?: RouteRecord,
   strict?: boolean
 ): string {
+  // 除去末尾的斜杆
   if (!strict) path = path.replace(/\/$/, '')
   if (path[0] === '/') return path
   if (parent == null) return path
+  // 如果是子路径，不需要加斜杆，会自动拼接父路径和斜杆
   return cleanPath(`${parent.path}/${path}`)
 }
