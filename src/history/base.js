@@ -48,8 +48,10 @@ export class History {
 
   constructor (router: Router, base: ?string) {
     this.router = router
+    // 规范传入的base参数
     this.base = normalizeBase(base)
     // start with a route object that stands for "nowhere"
+    // 初始化一个默认路径表示当前路径，每次路径切换实质上就是修改当前路径
     this.current = START
     this.pending = null
     this.ready = false
