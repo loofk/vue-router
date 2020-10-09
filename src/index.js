@@ -79,6 +79,7 @@ export default class VueRouter {
     return this.matcher.match(raw, current, redirectedFrom)
   }
 
+  // currentRoute属性获取当前路径对象，等同于this.$route
   get currentRoute (): ?Route {
     return this.history && this.history.current
   }
