@@ -44,6 +44,7 @@ export default class VueRouter {
     this.beforeHooks = []
     this.resolveHooks = []
     this.afterHooks = []
+    // 生成一个匹配器对象，只包含addRoutes和match两个方法
     this.matcher = createMatcher(options.routes || [], this)
 
     let mode = options.mode || 'hash'
