@@ -131,6 +131,7 @@ export default class VueRouter {
         history.setupListeners()
         handleInitialScroll(routeOrError)
       }
+      // init方法在beforeCreate钩子中触发，这意味着在`new Vue`时就会执行一次路径切换
       history.transitionTo(
         history.getCurrentLocation(),
         setupListeners,
