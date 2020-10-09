@@ -179,6 +179,8 @@ function compileRouteRegex (
   path: string,
   pathToRegexpOptions: PathToRegexpOptions
 ): RouteRegExp {
+  // 假设path是`/foo`，则生成的正则为`/^\/foo(?:\/(?=$))?$/i`
+  // 其中`(?:\/(?=$))?`表示匹配末尾可能存在的斜杆或者没有
   const regex = Regexp(path, [], pathToRegexpOptions)
   if (process.env.NODE_ENV !== 'production') {
     const keys: any = Object.create(null)
